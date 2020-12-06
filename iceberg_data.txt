@@ -1,0 +1,5 @@
+Mass: 33044400.000000004, Volume: 3671.6000000000004, Number: 1, is_towable = True 
+Mass: 52661700.0, Volume: 5851.3, Number: 2, is_towable = False 
+Mass: 129739500.0, Volume: 14415.5, Number: 3, is_towable = False 
+Mass: 556576200.0, Volume: 61841.8, Number: 4, is_towable = False 
+Mass: 638674200.0, Volume: 70963.8, Number: 5, is_towable = False 
