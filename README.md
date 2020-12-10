@@ -18,6 +18,11 @@ Files included in the repository are as follows.
 * `whitestarMain.py`
 * `icebergidentifier.py`
 * `ice.py`
+* `radar2.txt`
+* `lidar2.txt`
+* `towability_map.jpg`
+* `iceberg_data.txt`
+* `loc_array.txt`
 
 ## Running code and code output
 
