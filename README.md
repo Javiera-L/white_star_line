@@ -1,6 +1,6 @@
 # White Star Line
 Assignment 2 for the module GEOG5995M Programming for Social Scientists: Core Skills (Python), delivered at the University of Leeds.
-This code is licensed under [the Unlicense](https://unlicense.org) (see LICENCE file).
+This code is licensed under the [Unlicense](https://unlicense.org) (see LICENCE file).
 
 ## Project Description
 The project addresses the hypothetical need (and more from historical paranoia than anything else) for shipping companies to send out iceberg-towing tugs with all their ships. In order to use these iceberg-towing tugs, the companies need an application that can locate icebergs and assess their towability. This is the aim of this project.
