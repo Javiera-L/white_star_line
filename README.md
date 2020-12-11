@@ -25,7 +25,8 @@ The following files are created after running the programme if we choose to expo
 * `iceberg_data.txt` : Saved to this file are total mass, the total volume, iceberg identifier number and towability.
 * `loc_array.txt`: Map of icebergs locations as a text file. The location of each iceberg is represented using its unique iceberg identifier number.
 
-## Running code and code output
+## Code execution and output
+
 
 
 ## Further improvements
