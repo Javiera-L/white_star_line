@@ -1,5 +1,7 @@
 # White Star Line
 Assignment 2 for the module GEOG5995M Programming for Social Scientists: Core Skills (Python), delivered at the University of Leeds.
+
+## License
 This code is licensed under the [Unlicense](https://unlicense.org) (see LICENCE file).
 
 ## Project Description
