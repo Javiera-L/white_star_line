@@ -43,5 +43,9 @@ This is our GUI, and from the "Options" menu bar we can choose the following.
 5. **Quit** : Quits program and closes all windows.
 
 
+
+
+
+
 ## Further improvements
 * Could display the information of each iceberg (mass, volume, towability) on the map, instead of printing it on the console.
