@@ -34,10 +34,7 @@ Example:
 Here, the command line arguments are the radar and lidar data files respectively. They **must** be inputed in this order. The user can choose other radar and lidar files of their preference as long as they stick to the same units used in the files provided (see [Repository Contents](#repository-contents)). If too many/ too few command line arguments are inputted, the program will throw an error message and force the program to quit.
 
 Upon running the programme, a new window should appear called "Towability Map". 
-![](towability_map.jpg)
-
-<img align="right" width="600" height="200" src="towability_map.jpg">
-
+<img align="right" width="300" height="300" src="towability_map.jpg">
 This is our GUI, and from the "Options" menu bar we can choose the following.
 1. **Save image** : Saves the towability map as a jpg file `towability_map.jpg`.
 2. **Print iceberg data** : Prints the iceberg data (total mass, the total volume, iceberg identifier number and towability) to the console.
