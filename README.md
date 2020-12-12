@@ -50,6 +50,17 @@ This is our GUI, and from the "Options" menu bar we can choose the following.
 4. **Save location array to file** : Saves the array of locations to `loc_array.txt`
 5. **Quit** : Quits program and closes all windows.
 
+## Discussion
+The project aimed to identify icebergs and their towability, and display this graphically. I would say this was successfully achieved.
+
+As my software desgin, I chose to write up two classes: IcebergIdentifier and Iceberg. The first has the purpose of identifying the icebergs on the map and finding their characteristics (volume, mass). This information is then inputted into the Iceberg class that acts as an object to store information (mass, volume, location), and calculate towability as well as update an array that will represent towability of the icebergs on the map. By splitting up the bulk of the project into these to classes, I was able to simplify the program a lot (I had initially attempted to do it all using just one class).
+
+The `whitestarMain.py` is the main part of the programme, where it calls creates instances of the classes I had previously created and just inputs the radar and lidar data. This is the simplest part of the project.
+
+Some issues were encountered when trying to create the Graphical User Interface (GUI) on Tkinter. These were related to creating a PIL Image for the Canvas, which I was able to get around by using [Stack Overflow](https://stackoverflow.com). In addition, there are some issues related to Spyder that were only resolved when restarting the Python console (https://stackoverflow.com/questions/24274072/tkinter-pyimage-doesnt-exist).
+
+
+
 
 ## Further improvements
 * Could display the information of each iceberg (mass, volume, towability) on the map, instead of printing it on the console.
