@@ -57,10 +57,10 @@ As my software desgin, I chose to write up two classes: IcebergIdentifier and Ic
 
 The `whitestarMain.py` is the main part of the programme, where it calls creates instances of the classes I had previously created and just inputs the radar and lidar data. This is the simplest part of the project.
 
-Some issues were encountered when trying to create the Graphical User Interface (GUI) on Tkinter. These were related to creating a PIL Image for the Canvas, which I was able to get around by using [Stack Overflow](https://stackoverflow.com). In addition, there are some issues related to Spyder that were only resolved when [restarting the Python console] (https://stackoverflow.com/questions/24274072/tkinter-pyimage-doesnt-exist).
+Some issues were encountered when trying to create the Graphical User Interface (GUI) on Tkinter. These were related to creating a PIL Image for the Canvas, which I was able to get around by using [Stack Overflow](https://stackoverflow.com). In addition, there are some issues related to Spyder that were only resolved when [restarting the Python console](https://stackoverflow.com/questions/24274072/tkinter-pyimage-doesnt-exist).
 
 
 
 
 ## Further improvements
-* Could display the information of each iceberg (mass, volume, towability) on the map, instead of printing it on the console.
+Could display the information of each iceberg (mass, volume, towability) on the map, instead of printing it on the console.
