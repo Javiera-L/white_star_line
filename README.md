@@ -27,6 +27,11 @@ The following files are created after running the programme if we choose to expo
 * `iceberg_data.txt` : Saved to this file are total mass, the total volume, iceberg identifier number and towability.
 * `loc_array.txt`: Map of icebergs locations as a text file. The location of each iceberg is represented using its unique iceberg identifier number.
 
+Also included:
+* `README.md`
+* `LICENSE`
+* `UMLdiagram.pdf`: A pdf file of the UML diagrams for the classes.
+
 ## Code execution and output
 Install the repository files to your computer. Open up Terminal and navigate into the project folder. The program can now be run as follows.
 
