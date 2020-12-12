@@ -17,7 +17,7 @@ The application I have built uses satellite radar data, and airborn lidar (LIght
 ## Repository Contents
 Files included in the repository are as follows.
 * `whitestarMain.py` : This is the main file of the programme.
-* `icebergidentifier.py` : Builds the IcebergIdentifier() class, that uses the radar and lidar data to identify the icebergs on the map and calculate their volumes/masses. Uses the [depth first search algorithm](https://en.wikipedia.org/wiki/Depth-first_search) to identify positions of the icebergs.
+* `icebergidentifier.py` : Builds the IcebergIdentifier() class, that uses the radar and lidar data to identify the icebergs on the map and calculate their volumes/masses.
 * `ice.py` : Builds a simple class: Iceberg(). Each Iceberg() instance stores data for a single iceberg, assesses whether it is towable or not, and creates a map that highlights towable icebergs as green, red otherwise.
 * `radar2.txt` : The radar file has per m2 values of between 0 and 255. A value of 100 or above is ice. The area will be 300m by 300m. 
 * `lidar2.txt` : The radar file has per m2 values of between 0 and 255. One Lidar unit equals 10cm height. The area will be 300m by 300m. 
@@ -53,12 +53,15 @@ This is our GUI, and from the "Options" menu bar we can choose the following.
 ## Discussion
 The project aimed to identify icebergs and their towability, and display this graphically. I would say this was successfully achieved.
 
-As my software desgin, I chose to write up two classes: IcebergIdentifier and Iceberg. The first has the purpose of identifying the icebergs on the map and finding their characteristics (volume, mass). This information is then inputted into the Iceberg class that acts as an object to store information (mass, volume, location), and calculate towability as well as update an array that will represent towability of the icebergs on the map. By splitting up the bulk of the project into these to classes, I was able to simplify the program a lot (I had initially attempted to do it all using just one class).
+As my software desgin, I chose to write up two classes: IcebergIdentifier and Iceberg. By splitting up the bulk of the project into these to classes, I was able to simplify the program a lot (I had initially attempted to do it all using just one class).
+
+IcebergIdentifier has the purpose of identifying the icebergs on the map and finding their characteristics (volume, mass). The main hurdle I had to get over when desgining this class was identifying each individual iceberg from a map of several. To do this, I reformulated the problem as a graph theory problem that could be solved using the [depth first search algorithm](https://en.wikipedia.org/wiki/Depth-first_search). This also allowed me to keep track of the mass and volume of each iceberg.
+
+This information gathered from IcebergIdentifier is then inputted into the Iceberg class that acts as an object to store information (mass, volume, location, etc), and calculate towability as well as update an array that will represent towability of the icebergs on the map (green or red depending on whether towable or not). 
 
 The `whitestarMain.py` is the main part of the programme, where it calls creates instances of the classes I had previously created and just inputs the radar and lidar data. This is the simplest part of the project.
 
 Some issues were encountered when trying to create the Graphical User Interface (GUI) on Tkinter. These were related to creating a PIL Image for the Canvas, which I was able to get around by using [Stack Overflow](https://stackoverflow.com). In addition, there are some issues related to Spyder that were only resolved when [restarting the Python console](https://stackoverflow.com/questions/24274072/tkinter-pyimage-doesnt-exist).
-
 
 
 
