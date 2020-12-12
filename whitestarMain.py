@@ -10,6 +10,7 @@ matplotlib.use('TkAgg')
 from matplotlib.figure import Figure
 import matplotlib.pyplot as plt
 import csv
+import sys
 import numpy as np
 import icebergidentifier
 import ice
@@ -78,7 +79,8 @@ def create_tow_map():
 
     """
     for i in range(count):
-        icebergs[i].tow_map() # updates colour map so they all appear in same figure
+        icebergs[i].tow_map()
+        # updates colour map so they all appear in same figure
 
 def save_loc_array():
     """
@@ -150,8 +152,15 @@ def quitProgram():
 
 if __name__ == "__main__":
 
-    radar = open_file('radar2.txt')
-    lidar = open_file('lidar2.txt')
+    if len(sys.argv) == 3:
+        radar = open_file(sys.argv[1])    
+        lidar = open_file(sys.argv[2]) 
+    else:
+        sys.exit('Need to specify radar and lidar files as command line \
+                  arguments. Example (in terminal): python whitestarMain.py radar2.txt lidar2.txt')
+        
+    #radar = open_file('radar2.txt')
+    #lidar = open_file('lidar2.txt')
 
     # print(np.all(lidar==0))
     # plt.imshow(radar)
@@ -202,7 +211,6 @@ if __name__ == "__main__":
     filemenu = Menu(menubar, tearoff=0)
     menubar.add_cascade(label="Options", menu=filemenu)
     # filemenu.add_command(label="Open iceberg map", command=loadImage)
-    # Adding a delete image button to the cascade menu "File"
     filemenu.add_command(label="Save image", command=save_image(image))
     # filemenu.add_command(label="Delete image", command=deleteImage)
     filemenu.add_command(label="Print iceberg data",

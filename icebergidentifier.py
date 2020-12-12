@@ -74,6 +74,8 @@ class IcebergIdentifier:
             Variable "count" registers the number of iceberg that have been found.
         list
             The list "volumes" contains the volumes of each iceberg respectively.
+        list
+            The list "masses" contains the mass of each ieberg respectively
         np.array
             "loc_array" is a numpy array marking the location of each iceberg.
             Each iceberg has its own unique number, for the order in which they were
@@ -96,7 +98,7 @@ class IcebergIdentifier:
         for row in range(num_rows):
             for col in range(num_cols):
                 if graph[row][col] == 1:
-                    self.dfs(graph, weighted_graph, num_rows, num_cols,
+                    self.__dfs(graph, weighted_graph, num_rows, num_cols,
                              row, col, height_list, loc_array, count)
                     count += 1
                     tot_vol = sum(height_list) * 0.1  # x the heights by .1
@@ -105,7 +107,7 @@ class IcebergIdentifier:
                     height_list.clear()
         return count, volumes, masses, loc_array
 
-    def dfs(self, graph, weighted_graph, num_rows, num_cols, y, x,
+    def __dfs(self, graph, weighted_graph, num_rows, num_cols, y, x,
             height_list, loc_array, count):
         """
         Depth first search algorithm.
@@ -150,17 +152,17 @@ class IcebergIdentifier:
         loc_array[y][x] = count + 1
 
         if y != 0:
-            self.dfs(graph, weighted_graph, num_rows, num_cols, y - 1, x,
+            self.__dfs(graph, weighted_graph, num_rows, num_cols, y - 1, x,
                      height_list, loc_array, count)
 
         if y != num_rows - 1:
-            self.dfs(graph, weighted_graph, num_rows, num_cols, y + 1, x,
+            self.__dfs(graph, weighted_graph, num_rows, num_cols, y + 1, x,
                      height_list, loc_array, count)
 
         if x != 0:
-            self.dfs(graph, weighted_graph, num_rows, num_cols, y, x - 1,
+            self.__dfs(graph, weighted_graph, num_rows, num_cols, y, x - 1,
                      height_list, loc_array, count)
 
         if x != num_cols - 1:
-            self.dfs(graph, weighted_graph, num_rows, num_cols, y, x + 1,
+            self.__dfs(graph, weighted_graph, num_rows, num_cols, y, x + 1,
                      height_list, loc_array, count)
