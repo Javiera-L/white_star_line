@@ -1,5 +1,6 @@
 # White Star Line
 Assignment 2 for the module GEOG5995M Programming for Social Scientists: Core Skills (Python), delivered at the University of Leeds.
+GitHub link to repository: https://github.com/jvla97/white_star_line .
 
 ## License
 This code is licensed under the [Unlicense](https://unlicense.org) (see LICENCE file).
