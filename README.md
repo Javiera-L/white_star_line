@@ -11,7 +11,7 @@ The project addresses the hypothetical need (and more from historical paranoia t
 The application I have built uses satellite radar data, and airborn lidar (LIght Detection and Ranging) data from an area of sea to locate the icebergs. With this information we can both locate the icebergs and approximate their mass. The functionality of the app is as follows:
 
 1. Identifies the individual icebergs and their locations.
-2. Calculates the mass of each iceberg.
+2. Calculates the mass and volume of each iceberg.
 3. Displays map of towable/non-towable icebergs, marking them as either green or red respectively.
 4. Outputs the total mass, the total volume and whether you can pull the berg on the GUI, with option to save data to file.
 
