@@ -96,15 +96,26 @@ class IcebergIdentifier:
         masses = []
 
         for row in range(num_rows):
+            # print(row)
             for col in range(num_cols):
+                # print(col)
+                # print(graph[row][col])
                 if graph[row][col] == 1:
                     self.__dfs(graph, weighted_graph, num_rows, num_cols,
                              row, col, height_list, loc_array, count)
                     count += 1
+                    # print(count)
                     tot_vol = sum(height_list) * 0.1  # x the heights by .1
+                    # print(tot_vol)
                     volumes.append(tot_vol)  # total volume of that iceberg
                     masses.append(self.mass(tot_vol))
+                    # print(height_list)
                     height_list.clear()
+                    # print(height_list)
+                    # print(volumes)
+                    # print(masses)
+        # print(volumes)
+        # print(masses)
         return count, volumes, masses, loc_array
 
     def __dfs(self, graph, weighted_graph, num_rows, num_cols, y, x,
@@ -148,7 +159,9 @@ class IcebergIdentifier:
         # otherwise mark it as visited by making it zero
         graph[y][x] = 0
 
+        # print(weighted_graph[y][x])
         height_list.append(weighted_graph[y][x])
+        # print(count)
         loc_array[y][x] = count + 1
 
         if y != 0:

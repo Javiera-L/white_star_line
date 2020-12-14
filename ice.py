@@ -112,7 +112,10 @@ class Iceberg:
         row = len(self.loc_map)
         col = len(self.loc_map[0])
         for i in range(row):
+            # print(i)
             for j in range(col):
+                # print(j)
+                # print(self.loc_map[i][j])
                 if self.loc_map[i][j] == 1:
                     self.colour_map[i][j] = colour
                 else:

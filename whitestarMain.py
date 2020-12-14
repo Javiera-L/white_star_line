@@ -67,6 +67,23 @@ def save_data(array):
             outfile.write(', ')
     outfile.close()
 
+def assign_data_to_berg():
+    """
+    Assign the data collected about the volume, mass, unique identifier
+    number, location array and shared colour map array to separate Iceberg
+    instances.
+
+    Returns
+    -------
+    None.
+
+    """
+    # this for loop assigns data to iceberg object to store it
+    for i in range(count):
+        # print(i)
+        icebergs.append(ice.Iceberg(volumes[i], masses[i], i + 1,
+                                    loc_array, colour_map))
+        # need num to be i +1 to distinguish from 0, the background
 
 def create_tow_map():
     """
@@ -107,11 +124,12 @@ def save_data_to_file():
     """
     with open('iceberg_data.txt', 'w') as f:
         for berg in icebergs:
+            # print(berg)
             f.write(repr(berg))
 
 def print_iceberg_data():
     """
-    Print iceberg object data on the interpreter.
+    Print iceberg object data on the console.
 
     Returns
     -------
@@ -139,7 +157,7 @@ def save_image(filename):
 
 def quitProgram():
     """
-    Quit Tkinter loop.
+    Quit Tkinter loop. Close windows.
 
     Returns
     -------
@@ -152,23 +170,30 @@ def quitProgram():
 
 if __name__ == "__main__":
 
+    # check whether the correct number of argvs inputted in cmd line
     if len(sys.argv) == 3:
-        radar = open_file(sys.argv[1])    
-        lidar = open_file(sys.argv[2]) 
+        radar = open_file(sys.argv[1])
+        lidar = open_file(sys.argv[2])
     else:
         sys.exit('Need to specify radar and lidar files as command line \
-                  arguments. Example (in terminal): python whitestarMain.py radar2.txt lidar2.txt')
-        
-    #radar = open_file('radar2.txt')
-    #lidar = open_file('lidar2.txt')
+                  arguments. Example: python whitestarMain.py radar2.txt lidar2.txt')
+
+    # radar = open_file('radar2.txt')
+    # lidar = open_file('lidar2.txt')
 
     # print(np.all(lidar==0))
     # plt.imshow(radar)
+    # plt.imshow(lidar)
 
+    # create Icebergidentifier instance
     identifier = icebergidentifier.IcebergIdentifier(radar, lidar)
 
+    # call the collect_data() method of the identifier to collate information
+    # of the icebergs and assign the return values to the following variables
     count, volumes, masses, loc_array = identifier.collect_data()
     # print(np.nonzero(loc_array))
+    # print(volumes)
+    # print(masses)
     # plt.imshow(loc_array)
     row = len(loc_array)
     col = len(loc_array[0])
@@ -177,21 +202,22 @@ if __name__ == "__main__":
     colour_map = np.zeros((row, col, 3))
     icebergs = []
 
-    # this for loop assigns data to iceberg object to store it
-    for i in range(count):
-        # print(i)
-        icebergs.append(ice.Iceberg(volumes[i], masses[i], i + 1,
-                                    loc_array, colour_map))
-        # need num to be i +1 to distinguish from 0, the background
-
-    # fig = plt.figure(frameon=False)
+    # assign the data from identifier to an iceberg instance appended to
+    # iceberg list
+    assign_data_to_berg()
 
     # create our green and red map (updates our empty colourmap)
     create_tow_map()
 
     # print(type(colour_map))
     colour_map = np.asarray(colour_map, dtype=np.float32) / 255
+    # plt.imshow(colour_map)
+    # image = Image.fromarray(colour_map)
+    # image = image.convert('RGB')
+    # image = Image.fromarray(colour_map, 'RGB')
+    # image = Image.fromarray((colour_map * 255), 'RGB')
     image = Image.fromarray((colour_map * 255).astype(np.uint8), 'RGB')
+    # image = ImageTk.PhotoImage(colour_map)
     # print(type(image))
 
     # Main window
